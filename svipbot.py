@@ -126,7 +126,7 @@ class Svipbot(object):
 		# set debug mode
 		self.debugmode = options.debug
 		self.verbose = options.verbose
-		self.api = Api(debug=self.debugmode)
+		self.api = Api(debug=self.debugmode, server="theinfosphere.org")
 		self.poolapi = Api(debug=self.debugmode, server="pool.theinfosphere.org")
 		if self.debugmode:
 			self.log("==== Debug mode!")

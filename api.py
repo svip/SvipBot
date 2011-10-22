@@ -6,9 +6,9 @@ import gzip,StringIO
 import httplib,socket
 
 class Api(object):
-	server = "theinfosphere.org"
-	url = "http://theinfosphere.org/api.php"
-	indexurl = "http://theinfosphere.org/index.php"
+	server = "example.org"
+	url = "http://example.org/api.php"
+	indexurl = "http://example.org/index.php"
 	default_data = {"format" : "xml"}
 	user_data = {}
 	logged_in = False
