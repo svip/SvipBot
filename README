@@ -1,0 +1,16 @@
+This bot is designed for usage on theinfosphere.org, if you desire to
+use it for another wiki project, please ensure to create the following
+file in the main directory:
+
+Name: logindata.py
+
+Structure:
+class userdata:
+	username = "Username"
+	password = "Password"
+
+This file is not included in this repository for obvious reasons.
+
+Moreover, several parts of the tasks, etc. make specific references to
+'SvipBot' as the username of the bot.  In the future, I hope to make
+a more principle outlook, by using the Username supplied in logindata.py
