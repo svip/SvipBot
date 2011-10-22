@@ -426,9 +426,8 @@ class Api(object):
 	
 
 	
-	def __init__(self, server=None, debug=False):
-		if server!=None:
-			self.server = server
-			self.url = "http://%s/api.php" % server
-			self.indexurl = "http://%s/index.php" % server
+	def __init__(self, server, debug=False):
+		self.server = server
+		self.url = "http://%s/api.php" % server
+		self.indexurl = "http://%s/index.php" % server
 		self.debugmode = debug
