@@ -5,6 +5,9 @@ from pages import Pages
 import pickle
 
 class Tasks(Basic):
+	"""These are tasks to be run by the bot; they are more specific than the more
+	general page handling task, etc.  These include (for now at least); check
+	the pages of an entire category and move a category."""
 	
 	def run_category(self, category, doall=False):
 		if doall:

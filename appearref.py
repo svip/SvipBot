@@ -6,6 +6,12 @@ import time
 import pickle, os
 
 class AppearRef(Basic):
+	"""This file contains *specific* Infosphere-related mechanics.
+	It deals with episodes, comics, etc.; all that appears in the appearance
+	lists which appears in numerous articles across the Infosphere.
+	
+	If you are using this bot for something *else*, you will probably not
+	need this code."""
 
 	episodes = {}
 	comics = {}

@@ -4,6 +4,17 @@ from basic import Basic
 from tasks import *
 
 class Taskmanager(Basic):
+	"""These are special case tasks that can only be done by running the bot from
+	a terminal; these will *never* be part of a cronjob run (unless if you specify
+	it to do so), as these are designed for big tasks that are necessary, but
+	seldomly required.
+	
+	These tasks can be easily be seen by running ./botcronjob.py --task=help
+	
+	Currently this includes updating all appearance-related information on the
+	Infosphere; such as when new episode titles become known, these will be there
+	to update it across the wiki (wherever the appropriate appearance tags are
+	used)."""
 
 	tasks = {'eref' : ['Update the e-reference templates', eref.Eref]}
 

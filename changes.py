@@ -5,6 +5,7 @@ import difflib
 from basic import Basic
 
 class Changes(Basic):
+	"""Handle recent changes."""
 
 	maximum = 500
 	

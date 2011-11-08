@@ -4,6 +4,8 @@ from lxml import etree
 from basic import Basic
 
 class Quotes(Basic):
+	"""Quotes are a big part of the Infosphere, and appears almost on every page,
+	as such, they have a universal standard that the bot tries to fix."""
 
 	content = ''
 	top = ''

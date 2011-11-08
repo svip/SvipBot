@@ -5,6 +5,10 @@ from basic import Basic
 import pickle, random, os
 
 class Categories(Basic):
+	"""This allows you to move categories, remove 'bad categories'.  Yes,
+	it contains static data on bad categories, etc., but it does have some
+	flexibility in that regard.  You can safely remove the static stuff."""
+	
 	tmp = {}
 	content = ''
 	badcats = ['Primary Characters', 
@@ -138,43 +142,6 @@ class Categories(Basic):
 		work = ds.sub('', work).strip('\n ')
 		final = '%s\n%s' % (work, catbox)
 		self.content = final.strip('\n ')
-	
-	"""
-	def category_replacement(self, cats, infocats, lookcats=[]):
-		i = 1
-		m = 50
-		if len(lookcats)==0:
-			for c in cats:
-				lookcats.append(c[0])
-		#for c in infocats:
-		#	lookcats.append(c)
-		for c in lookcats:
-			print "Doing pages in `%s'..." % c
-			pages = self.api.get_category_pages('Category:' + c, 500, '0|14')
-			for p in pages:
-				print "Rearranging `%s'..." % p['title'],
-				if self.category_arrangement(p['title'], cats, infocats):
-					print " done"
-					i += 1
-					if i > m:
-						break
-				else:
-					print " skipped"
-			if i > m:
-				break 
-			print "Next category..."
-	
-	def category_styles(self):
-		self.category_replacement([('Heads in Jars', 'Heads in jars'), 
-			('Human', 'Humans'),
-			('U.S. Presidents', 'U.S. presidents'),
-			('Earth President', 'Earth presidents'),
-			('Farnsworth\'s Creations', 'Farnsworth\'s creations'),
-			('Voice Actors', 'Voice actors'),
-			('Food and Drinks', 'Food and drinks'),
-			('Alien Species', 'Alien species')
-		], #,
-		   ['Episodes'])"""
 	
 	def page(self, content, title):
 		self.tmp = {}

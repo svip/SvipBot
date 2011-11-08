@@ -5,6 +5,8 @@ from logindata import userdata
 import re
 
 class Images(Basic):
+	"""Handle a separate Pool Wiki.  Some of these might be rather specific
+	to the Infosphere's Pool Wiki, though."""
 
 	imageapi = None
 	usable = False

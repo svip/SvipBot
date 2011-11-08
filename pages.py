@@ -6,11 +6,12 @@ from quotes import Quotes
 import quotes
 from appearref import AppearRef
 from categories import Categories
-#from images import Images
 import re
 from urllib import unquote
 
 class Pages(Basic):
+	"""The general class for handling pages and modifications to be done to
+	these pages.  Yes, a lot of these are Infosphere specific."""
 
 	ts = None
 	pages = []
@@ -303,8 +304,6 @@ class Pages(Basic):
 					self.log("	>> Edit failed.")
 			else:
 				self.log("	> No changes made, ommitting an edit")
-			#if self.debugmode:
-			#	print work
 			if len(donepages) >= self.pagestorun and self.pagestorun != 0:
 				break
 	
@@ -324,4 +323,3 @@ class Pages(Basic):
 		Basic.__init__(self, debug, api, verbose)
 		self.ar = AppearRef(debug=self.debugmode, api=self.api, verbose=self.verbose)
 		self.categories = Categories(debug=self.debugmode, api=self.api, verbose=self.verbose)
-		#self.images = Images(debug=self.debugmode, api=self.api, verbose=self.verbose)

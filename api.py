@@ -6,6 +6,9 @@ import gzip,StringIO
 import httplib,socket
 
 class Api(object):
+	"""The API implemetation for the MediaWiki API.  Should work with
+	MediaWiki 1.18+"""
+
 	server = "example.org"
 	url = "http://example.org/api.php"
 	indexurl = "http://example.org/index.php"
@@ -17,9 +20,11 @@ class Api(object):
 	additional_cookies = {}
 	httpsocket = None
 	
+	"""Use a general socket, so we don't need to initiate for each request."""
 	def init_socket(self):
 		self.httpsocket = httplib.HTTPConnection(self.server, 80)
 	
+	"""General response obtain (for both post and get methods)."""
 	def getresponse(self, method, url, query, headers, limit=1):
 		if limit > 5:
 			return None
@@ -40,8 +45,10 @@ class Api(object):
 			self.httpsocket.connect()
 			response = self.getresponse(method, url, query, headers, limit+1)
 		return response
-
+	
+	"""Post data."""
 	def post(self, data, tries=1):
+		"""Only try posting the data five times."""
 		if tries > 5:
 			return None
 		orgdata = data
@@ -75,6 +82,7 @@ class Api(object):
 		self.httpsocket.close()
 		return gzipper.read()
 	
+	"""Obtain the raw data of a document."""
 	def index_request(self, title, action, query={}):
 		data = {"title" : title, "action" : action}
 		data.update(query)
@@ -98,6 +106,7 @@ class Api(object):
 		except IOError:
 			return raw
 	
+	"""Create cookie for the API requests."""
 	def make_cookie(self):
 		p = self.user_data["cookieprefix"]
 		if self.logged_in:
