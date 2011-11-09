@@ -284,7 +284,10 @@ class Api(object):
 			xml = parseString(self.post(query))
 		except TypeError:
 			return None
-		image = xml.getElementsByTagName("ii")[0]
+		try:
+			image = xml.getElementsByTagName("ii")[0]
+		except IndexError:
+			return None
 		return { "timestamp" : image.attributes["timestamp"].value,
 			"user" : image.attributes["user"].value,
 			"url" : image.attributes["url"].value,
