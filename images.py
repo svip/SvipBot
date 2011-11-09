@@ -31,6 +31,8 @@ class Images(Basic):
 			description = work = self.imageapi.get_content(image['title'])
 			imageinfo = self.imageapi.get_image(image['title'])
 			capture = False
+			if imageinfo == None:
+				continue
 			if float(imageinfo["height"])/imageinfo["width"] == 9/16.0:
 				# 16:9?  Sounds likely to be a Futurama screen capture.
 				# though we should probably check for other shows.
